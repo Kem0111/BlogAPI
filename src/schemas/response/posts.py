@@ -7,4 +7,6 @@ class Posts(BaseModel):
     title: str
     description: str
     author: str
+    likes_count: int
+    dislikes_count: int
     created_at: datetime

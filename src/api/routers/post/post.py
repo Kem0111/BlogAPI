@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, Path, Query
 from starlette import status
 
 from sqlalchemy import Select, select
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, subqueryload
 
 from src.core.depends import DatabaseSession, authorization
 from src.orm.user import UserModel
@@ -30,6 +30,8 @@ async def get_all_posts_core(posts: List[PostModel]):
                 "title": post.title,
                 "description": post.description,
                 "author": post.author.username,
+                "likes_count": len(post.likes),
+                "dislikes_count": len(post.dislikes),
                 "created_at": post.created_at,
             }
             for post in posts
@@ -53,6 +55,8 @@ async def get_all_posts(
     query: Select = (
         select(PostModel)
         .options(joinedload(PostModel.author))
+        .options(subqueryload(PostModel.likes))
+        .options(subqueryload(PostModel.dislikes))
         .offset(offset)
         .limit(per_page)
     )
