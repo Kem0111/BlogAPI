@@ -8,6 +8,9 @@ I left a .env file with the base configuration and jwt so that you can easily ra
 
 ---
 ## How to run (Useage with docker)
+```
+git clone https://github.com/Kem0111/BlogAPI.git
+```
 
 ```
 docker compose up -d
