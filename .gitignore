@@ -169,7 +169,8 @@ cython_debug/
 .vscode/
 
 # alembic migrations
-
+alembic/version/*
+!alembic/version/.gitkeep
 
 # Linters
 .ruff_cache
