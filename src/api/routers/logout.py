@@ -4,7 +4,7 @@ from fastapi.responses import Response
 from starlette import status
 
 from src.core.depends import AuthJWT, authorization
-from src.schemas import ApplicationResponse, RouteReturnT
+from src.schemas import ApplicationResponse, RouteReturn
 from src.utils.cookies import unset_jwt_cookies
 
 router = APIRouter()
@@ -20,7 +20,7 @@ router = APIRouter()
 async def logout_user(
     response: Response,
     authorize: AuthJWT,
-) -> RouteReturnT:
+) -> RouteReturn:
 
     unset_jwt_cookies(response=response, authorize=authorize)
 

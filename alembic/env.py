@@ -20,7 +20,7 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from src.orm.config import ORMModel  # noqa
-from src.orm import user
+from src.orm import user, post, like, dislike
 
 target_metadata = ORMModel.metadata
 

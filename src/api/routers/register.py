@@ -9,7 +9,7 @@ from src.orm import UserModel
 from src.schemas import (
     ApplicationResponse,
     BodyRegisterRequest,
-    RouteReturnT
+    RouteReturn
 )
 from src.utils.db_query import check_duplicates
 
@@ -25,7 +25,7 @@ router = APIRouter()
 async def register_user(
     session: DatabaseSession,
     request: BodyRegisterRequest = Body(...),
-) -> RouteReturnT:
+) -> RouteReturn:
 
     async with session.begin():
 

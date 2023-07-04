@@ -1,4 +1,5 @@
 from pydantic import EmailStr, Field, BaseModel
+from src.metadata import PASSWORD_REGEX
 
 
 class Register(BaseModel):
@@ -6,4 +7,4 @@ class Register(BaseModel):
     last_name: str
     username: str
     email: EmailStr
-    password: str = Field(..., max_length=30)
+    password: str = Field(..., max_length=30, regex=PASSWORD_REGEX)

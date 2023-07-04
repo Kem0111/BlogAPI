@@ -47,7 +47,7 @@ if TYPE_CHECKING:
 
 
 DictStrAny = Dict[str, Any]
-RouteReturnT = Dict[str, Any]
+RouteReturn = Dict[str, Any]
 
 
 class ExcludeNone:

@@ -10,7 +10,7 @@ from src.core.depends import (AuthJWT,
                               DatabaseSession,
                               authorization)
 from src.core.security import check_hashed_password
-from src.schemas import ApplicationResponse, RouteReturnT, BodyLoginRequest
+from src.schemas import ApplicationResponse, RouteReturn, BodyLoginRequest
 from src.utils.cookies import set_and_create_tokens_cookies
 from src.orm import UserModel
 
@@ -28,7 +28,7 @@ async def login_user(
     authorize: AuthJWT,
     session: DatabaseSession,
     request: BodyLoginRequest = Body(...),
-) -> RouteReturnT:
+) -> RouteReturn:
 
     query: Select = select(UserModel).where(
         UserModel.email == request.email
@@ -68,7 +68,7 @@ async def refresh_jwt_tokens(
     response: Response,
     authorize: AuthJWT,
     user: AuthorizationRefresh,
-) -> RouteReturnT:
+) -> RouteReturn:
 
     set_and_create_tokens_cookies(response=response,
                                   authorize=authorize,
