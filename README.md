@@ -15,3 +15,13 @@ git clone https://github.com/Kem0111/BlogAPI.git
 ```
 docker compose up -d
 ```
+## If you want to change project:
+
+```
+pip install poetry
+poetry install
+```
+
+After you can work locally 
+
+### If you want to deploy, you should change env-file to connect to the database you need and change make start command, after run dockerfile on your cloud instanse 
